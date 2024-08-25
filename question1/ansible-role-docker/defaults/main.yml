@@ -1,16 +1,10 @@
 ---
-# Edition can be one of: 'ce' (Community Edition) or 'ee' (Enterprise Edition).
 docker_edition: 'ce'
 docker_packages:
   - "docker-{{ docker_edition }}"
 docker_packages_state: present
 docker_obsolete_packages:
   - docker
-  # - docker.io
-  # - docker-engine
-  # - podman-docker
-  # - containerd
-  # - runc
 
 # Service options.
 docker_service_manage: true
@@ -47,6 +41,6 @@ docker_users: []
 
 # Docker daemon options as a dict
 docker_daemon_options: {
-  storage-driver: "overlay2",
-  log-driver: "json-file"
+  storage-driver: "{{ docker_storage_driver }}",
+  log-driver: "{{ docker_logging_driver }}"
 }
