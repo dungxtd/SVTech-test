@@ -1,4 +1,30 @@
-# Question 1
+# Question 1: Write a Ansible playbook
+
+## Files
+
+### `setup_prod.yml`
+
+This Ansible playbook:
+
+- Installs and configures Docker.
+- Tunes the server for high network traffic.
+- Configures logging of commands executed by users.
+
+### `inventory`
+
+The inventory file contains the host information for the Ansible playbook:
+
+- **[dev]**: Defines the target server IP address.
+- **[all:vars]**: Sets the SSH user for Ansible.
+
+## Run the Ansible Playbook
+
+To apply the configuration defined in `setup_prod.yml` to the server specified in the `inventory` file, run the following command:
+
+```bash
+cd ansible
+ansible-playbook -i inventory setup_prod.yml
+```
 
 # Question 2: Monitoring Architecture for Resource Utilization
 
